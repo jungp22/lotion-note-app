@@ -1,0 +1,37 @@
+
+
+.Header{
+  display:flex;
+  flex-direction: row;
+  background-color: white;
+  justify-content: space-between;
+  text-align: center;
+  border-top: 3px solid #4d455d;
+  border-bottom: 2px solid #f6f6f6;
+}
+
+h1{
+  margin:8px 0px 0px;
+}
+p{
+  margin:5px;
+  font-size: 12px;
+}
+button{
+  background-color: white;
+  border:none;
+  width: 70px;
+}
+
+button:hover{
+  background-color: #4d455d;
+  color:white;
+}
+
+.cooldiv{
+  width:70px;
+}
+img{
+
+  width:20px;
+}
