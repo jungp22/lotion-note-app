@@ -1,0 +1,129 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 75px);
+}
+
+.Header {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  justify-content: space-between;
+  text-align: center;
+  border-top: 3px solid #4d455d;
+  border-bottom: 2px solid #f6f6f6;
+  width: 100%;
+}
+
+.Header h1 {
+  margin: 8px 0px 0px;
+}
+
+.Header p {
+  margin: 0px;
+  font-size: 12px;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 5px;
+}
+.Header button {
+  background-color: white;
+  border: none;
+  width: 64px;
+}
+
+.Header button:hover {
+  background-color: #4d455d;
+  color: white;
+}
+
+.Header .cooldiv {
+  width: 70px;
+}
+.Header img {
+  width: 20px;
+}
+.EmptyNote {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  color: gray;
+  flex:5;
+  height: 100%;
+}
+.EmptyNote p {
+  font-size: 50px;
+}
+
+.NoteList {
+  display: flex;
+  flex:2;
+  height: 100%;
+  align-items: start;
+  border: 2px solid #f6f6f6;
+}
+
+.ListHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+  border-bottom: 2px solid #f6f6f6;
+}
+
+.ListHeader button {
+  background-color: white;
+  border: none;
+  width: 64px;
+  height: 50px;
+}
+
+.ListHeader button:hover {
+  background-color: #4d455d;
+  color: white;
+}
+
+.quill {
+  width: 100%;
+  height: 100%;
+}
+
+.Note {
+  align-items: start;
+  justify-items: center;
+  flex:5;
+  height: 100%;
+}
+
+.NoteHeader {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+}
+
+.NoteTitleButtons button {
+  background-color: white;
+  border: none;
+  width: 64px;
+  height: 50px;
+}
+
+.NoteTitleButtons button:hover {
+  background-color: #4d455d;
+  color: white;
+}
+.NoteTitle {
+  display: flex;
+  flex-direction: column;
+}
+.NoteTitle input{
+  border:none;
+}
+
+.NoteTitle input:focus{
+  border:none;
+}
