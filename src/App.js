@@ -1,13 +1,20 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import EmptyNote from "./components/EmptyNote";
 import Header from "./components/Header";
 import NoteList from "./components/NoteList";
 import "./index.css";
+import MainEmpty from "./pages/MainEmpty";
+import MainNoteEdit from "./pages/MainNoteEdit";
+import MainNoteView from "./pages/MainNoteView";
 function App() {
   return (
-    <>
-      <Header></Header>
-      <EmptyNote></EmptyNote>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/*" element={<MainEmpty />}></Route>
+        <Route path="/notes/:id" element={<MainNoteView />}></Route>
+        <Route path="/notes/:id/edit" element={<MainNoteEdit />}></Route>  
+      </Routes>
+    </BrowserRouter>
   );
 }
 
