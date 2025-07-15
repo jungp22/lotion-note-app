@@ -1,12 +1,14 @@
-import {useState } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import EmptyNote from "../components/EmptyNote";
 
 import "../style/styles.css";
 import NoteList from "../components/NoteList";
-import Note from "../components/Note";
+import NoteEdit from "../components/NoteEdit";
+import NoteView from "../components/NoteView";
 
-const Homepage = ({mainView}) => {
+
+const Homepage = ({ mainView }) => {
   const [showNoteList, setShowNoteList] = useState(false);
 
   function toggleList() {
@@ -21,8 +23,8 @@ const Homepage = ({mainView}) => {
       <div className="main">
         <NoteList showNoteList={showNoteList} />
         {mainView === "empty" && <EmptyNote />}
-        {mainView === "viewonly" && <Note />}
-        {mainView === "edit" && <Note />}
+        {mainView === "viewonly" && <NoteView />}
+        {mainView === "edit" && <NoteEdit />}
       </div>
     </div>
   );

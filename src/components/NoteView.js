@@ -1,23 +1,24 @@
 import React from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import "../style/Note.css";
 
-const Note = () => {
+const NoteView = () => {
   return (
     <div className="Note">
       <div className="NoteHeader">
         <div className="NoteTitle">
-          <input type="text"></input>
-          <input type="datetime-local" />
+          <h2>test</h2>
+          <p>date</p>
         </div>
         <div className="NoteTitleButtons">
-          <button>Save</button>
+          <button>Edit</button>
           <button>Delete</button>
         </div>
       </div>
-      <ReactQuill theme="snow" />
+      <p>
+        This is just a test
+      </p>
     </div>
   );
 };
 
-export default Note;
+export default NoteView;
