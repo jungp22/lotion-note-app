@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const NoteList = () => {
+const NoteList = ({showNoteList}) => {
   return (
-    <div>NoteList</div>
-  )
-}
+    <>
+      {showNoteList && (
+        <div className="NoteList">
+          <div className="ListHeader">
+            <h3>Notes</h3>
+            <button>+</button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
-export default NoteList
+export default NoteList;
