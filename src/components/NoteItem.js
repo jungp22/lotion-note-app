@@ -1,8 +1,12 @@
 import React from 'react'
+import "../style/NoteItem.css";
 
 const NoteItem = () => {
   return (
-    <div>NoteItem</div>
+    <button className="NoteItem">
+      <h2>title</h2>
+      <p>date</p>
+    </button>
   )
 }
 

@@ -1,0 +1,16 @@
+.NoteItem {
+  border-bottom: 2px solid #f6f6f6;
+  width: 100%;
+  background-color: white;
+  border: none;
+  text-align: left;
+}
+
+.NoteItem:hover{
+  background-color: #4d455d;
+  color: white;
+}
+
+p{
+  color: gray;
+}
