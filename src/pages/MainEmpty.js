@@ -6,6 +6,7 @@ import "../style/header.css";
 import hamburger from "../data/image.png";
 import ReactQuill from "react-quill";
 import ExampleNote from "../components/ExampleNote";
+import NoteList from "../components/NoteList";
 
 const MainEmpty = () => {
   const [showNoteList, setShowNoteList] = useState(false);
@@ -20,14 +21,7 @@ const MainEmpty = () => {
       <Header toggleList = {toggleList}/>
 
       <div className="main">
-        {showNoteList && (
-          <div className="NoteList">
-            <div className="ListHeader">
-              <h3>Notes</h3>
-              <button>+</button>
-            </div>
-          </div>
-        )}
+        <NoteList showNoteList = {showNoteList}/>
         <EmptyNote/>
       </div>
     </div>

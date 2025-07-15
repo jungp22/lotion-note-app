@@ -6,6 +6,9 @@ import "../style/header.css";
 import hamburger from "../data/image.png";
 import ReactQuill from "react-quill";
 import ExampleNote from "../components/ExampleNote";
+import NoteItem from "../components/NoteItem";
+import Note from "../components/Note";
+import NoteList from "../components/NoteList";
 
 const MainNoteEdit = () => {
   const [showNoteList, setShowNoteList] = useState(false);
@@ -19,27 +22,8 @@ const MainNoteEdit = () => {
     <div className="page">
       <Header toggleList = {toggleList}/>
       <div className="main">
-        {showNoteList && (
-          <div className="NoteList">
-            <div className="ListHeader">
-              <h3>Notes</h3>
-              <button>+</button>
-            </div>
-          </div>
-        )}
-        <div className="Note">
-          <div className="NoteHeader">
-            <div className="NoteTitle">
-              <input type="text"></input>
-              <input type="datetime-local" />
-            </div>
-            <div className="NoteTitleButtons">
-              <button>Save</button>
-              <button>Delete</button>
-            </div>
-          </div>
-          <ReactQuill theme="snow" />
-        </div>
+        <NoteList showNoteList = {showNoteList}/>
+        <Note/>
       </div>
     </div>
   );
