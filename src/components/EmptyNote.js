@@ -1,4 +1,6 @@
 import React from "react";
+import "../style/Note.css";
+
 const EmptyNote = () => {
   return (
     <div className="EmptyNote">
