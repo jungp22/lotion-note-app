@@ -2,9 +2,10 @@ import React from "react";
 import "../style/NoteList.css";
 import NoteItem from "./NoteItem";
 const NoteList = ({ showNoteList, noteItems, addNote }) => {
+  
   return (
     <>
-      {showNoteList && (
+      {showNoteList === "true" && (
         <div className="NoteList">
           <div className="ListHeader">
             <h2>Notes</h2>
