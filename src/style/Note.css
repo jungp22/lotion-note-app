@@ -45,6 +45,8 @@
 .NoteTitle {
   display: flex;
   flex-direction: column;
+    padding: 10px 0px 10px 20px;
+
 }
 .NoteTitle input{
   border:none;
