@@ -21,7 +21,7 @@ const NoteEdit = ({ noteItems }) => {
     <div className="Note">
       <div className="NoteHeader">
         <div className="NoteTitle">
-          <input type="text" value={noteItems[info.id - 1].title}></input>
+          <input id="EditTitle" type="text" value={noteItems[info.id - 1].title}></input>
           <input type="datetime-local" />
         </div>
         <div className="NoteTitleButtons">
