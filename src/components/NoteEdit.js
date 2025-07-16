@@ -2,20 +2,23 @@ import React from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../style/Note.css";
+import { useParams } from "react-router-dom";
 
-const NoteEdit = () => {
-  function handleDelete(){
+const NoteEdit = ({ noteItems }) => {
+  const info = useParams();
+  console.log(info.id);
+
+  function handleDelete() {
     const answer = window.confirm("Are you sure?");
     if (answer) {
       window.confirm("Ok");
     }
-
   }
   return (
     <div className="Note">
       <div className="NoteHeader">
         <div className="NoteTitle">
-          <input type="text"></input>
+          <input type="text" value={noteItems[info.id].title}></input>
           <input type="datetime-local" />
         </div>
         <div className="NoteTitleButtons">
@@ -23,7 +26,7 @@ const NoteEdit = () => {
           <button onClick={handleDelete}>Delete</button>
         </div>
       </div>
-      <ReactQuill theme="snow" />
+      <ReactQuill theme="snow" value={noteItems[info.id].content}/>
     </div>
   );
 };

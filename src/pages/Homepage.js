@@ -7,13 +7,15 @@ import NoteList from "../components/NoteList";
 import NoteEdit from "../components/NoteEdit";
 import NoteView from "../components/NoteView";
 
+import exdata from "../data/exdata";
 
 const Homepage = ({ mainView }) => {
   const [showNoteList, setShowNoteList] = useState(false);
 
+  const [noteItems, setNoteItems] = useState(exdata)
+
   function toggleList() {
     showNoteList ? setShowNoteList(false) : setShowNoteList(true);
-    console.log(showNoteList);
   }
 
   return (
@@ -21,10 +23,10 @@ const Homepage = ({ mainView }) => {
       <Header toggleList={toggleList} />
 
       <div className="main">
-        <NoteList showNoteList={showNoteList} />
+        <NoteList showNoteList={showNoteList} noteItems={noteItems} />
         {mainView === "empty" && <EmptyNote />}
-        {mainView === "viewonly" && <NoteView />}
-        {mainView === "edit" && <NoteEdit />}
+        {mainView === "viewonly" && <NoteView  noteItems={noteItems}/>}
+        {mainView === "edit" && <NoteEdit noteItems={noteItems} />}
       </div>
     </div>
   );
