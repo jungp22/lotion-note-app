@@ -15,13 +15,13 @@ const NoteEdit = ({ noteItems }) => {
     }
   }
   function handleSave() {
-    window.location.replace("/notes/" + (info.id));
+    window.location.replace("/notes/" + info.id);
   }
   return (
     <div className="Note">
       <div className="NoteHeader">
         <div className="NoteTitle">
-          <input type="text" value={noteItems[info.id-1].title}></input>
+          <input type="text" value={noteItems[info.id - 1].title}></input>
           <input type="datetime-local" />
         </div>
         <div className="NoteTitleButtons">
@@ -31,7 +31,7 @@ const NoteEdit = ({ noteItems }) => {
       </div>
       <ReactQuill
         theme="snow"
-        value={noteItems[info.id-1].content}
+        value={noteItems[info.id - 1].content}
         placeholder="Your Note Here"
       />
     </div>

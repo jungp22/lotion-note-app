@@ -1,7 +1,7 @@
 import React from "react";
 import "../style/NoteList.css";
 import NoteItem from "./NoteItem";
-const NoteList = ({showNoteList, noteItems}) => {
+const NoteList = ({ showNoteList, noteItems }) => {
   return (
     <>
       {showNoteList && (
@@ -11,10 +11,9 @@ const NoteList = ({showNoteList, noteItems}) => {
             <button>+</button>
           </div>
           <div className="List">
-            {noteItems.map((item, index)=>(
-              <NoteItem item = {item} index = {index}/>
-            )
-            )}
+            {noteItems.map((item, index) => (
+              <NoteItem item={item} index={index} />
+            ))}
           </div>
         </div>
       )}

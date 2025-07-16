@@ -12,7 +12,7 @@ import exdata from "../data/exdata";
 const Homepage = ({ mainView }) => {
   const [showNoteList, setShowNoteList] = useState(false);
 
-  const [noteItems] = useState(exdata)
+  const [noteItems] = useState(exdata);
 
   function toggleList() {
     showNoteList ? setShowNoteList(false) : setShowNoteList(true);
@@ -25,7 +25,7 @@ const Homepage = ({ mainView }) => {
       <div className="main">
         <NoteList showNoteList={showNoteList} noteItems={noteItems} />
         {mainView === "empty" && <EmptyNote />}
-        {mainView === "viewonly" && <NoteView  noteItems={noteItems}/>}
+        {mainView === "viewonly" && <NoteView noteItems={noteItems} />}
         {mainView === "edit" && <NoteEdit noteItems={noteItems} />}
       </div>
     </div>

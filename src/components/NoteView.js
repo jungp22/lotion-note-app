@@ -7,7 +7,7 @@ const NoteView = ({ noteItems }) => {
   console.log(info.id);
 
   function handleNoteEdit() {
-    window.location.replace("/notes/" + info.id +"/edit");
+    window.location.replace("/notes/" + info.id + "/edit");
   }
 
   function handleDelete() {
@@ -20,7 +20,7 @@ const NoteView = ({ noteItems }) => {
     <div className="Note">
       <div className="NoteHeader">
         <div className="NoteTitle">
-          <h2>{noteItems[info.id-1].title}</h2>
+          <h2>{noteItems[info.id - 1].title}</h2>
           <p>date</p>
         </div>
         <div className="NoteTitleButtons">
@@ -28,7 +28,9 @@ const NoteView = ({ noteItems }) => {
           <button onClick={handleDelete}>Delete</button>
         </div>
       </div>
-      <p>{noteItems[info.id-1].content}</p>
+      <div className="NoteContent">
+        <p>{noteItems[info.id - 1].content}</p>
+      </div>
     </div>
   );
 };
