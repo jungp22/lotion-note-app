@@ -14,19 +14,26 @@ const NoteEdit = ({ noteItems }) => {
       window.confirm("Ok");
     }
   }
+  function handleSave() {
+    window.location.replace("/notes/" + (info.id));
+  }
   return (
     <div className="Note">
       <div className="NoteHeader">
         <div className="NoteTitle">
-          <input type="text" value={noteItems[info.id].title}></input>
+          <input type="text" value={noteItems[info.id-1].title}></input>
           <input type="datetime-local" />
         </div>
         <div className="NoteTitleButtons">
-          <button>Save</button>
+          <button onClick={handleSave}>Save</button>
           <button onClick={handleDelete}>Delete</button>
         </div>
       </div>
-      <ReactQuill theme="snow" value={noteItems[info.id].content}/>
+      <ReactQuill
+        theme="snow"
+        value={noteItems[info.id-1].content}
+        placeholder="Your Note Here"
+      />
     </div>
   );
 };

@@ -12,7 +12,7 @@ import exdata from "../data/exdata";
 const Homepage = ({ mainView }) => {
   const [showNoteList, setShowNoteList] = useState(false);
 
-  const [noteItems, setNoteItems] = useState(exdata)
+  const [noteItems] = useState(exdata)
 
   function toggleList() {
     showNoteList ? setShowNoteList(false) : setShowNoteList(true);
