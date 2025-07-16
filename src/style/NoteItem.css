@@ -4,13 +4,17 @@
   background-color: white;
   border: none;
   text-align: left;
+    padding: 10px;
+
 }
 
 .NoteItem:hover{
   background-color: #4d455d;
   color: white;
 }
-
-p{
+.NoteItem p{
   color: gray;
+}
+.NoteItem .content{
+  margin-top: 10px;
 }

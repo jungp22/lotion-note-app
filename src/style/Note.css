@@ -1,10 +1,9 @@
-
 .EmptyNote {
   display: grid;
   align-items: center;
   justify-items: center;
   color: gray;
-  flex:5;
+  flex: 5;
   height: 100%;
 }
 .EmptyNote p {
@@ -19,7 +18,7 @@
 .Note {
   align-items: flex-start;
   justify-items: center;
-  flex:5;
+  flex: 5;
   height: 100%;
 }
 
@@ -35,7 +34,7 @@
   background-color: white;
   border: none;
   width: 64px;
-  height: 50px;
+  height: 67px;
 }
 
 .NoteTitleButtons button:hover {
@@ -45,13 +44,16 @@
 .NoteTitle {
   display: flex;
   flex-direction: column;
-    padding: 10px 0px 10px 20px;
-
+  padding: 10px 0px 10px 20px;
 }
-.NoteTitle input{
-  border:none;
+.NoteTitle input {
+  border: none;
 }
 
-.NoteTitle input:focus{
-  border:none;
+.NoteTitle input:focus {
+  border: none;
+}
+
+.NoteContent {
+  margin:20px;
 }
