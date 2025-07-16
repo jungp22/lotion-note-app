@@ -8,8 +8,7 @@ const NoteItem = ({ item, index }) => {
   return (
     <button className="NoteItem" onClick={handleNoteClick}>
       <h2>{item.title}</h2>
-      <p>datehere</p>
-
+      <p>{item.date}</p>
       <div className="content">
         <p>{item.content}</p>
       </div>

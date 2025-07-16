@@ -7,15 +7,21 @@ import NoteList from "../components/NoteList";
 import NoteEdit from "../components/NoteEdit";
 import NoteView from "../components/NoteView";
 
-import exdata from "../data/exdata";
 
 const Homepage = ({ mainView }) => {
   const [showNoteList, setShowNoteList] = useState(false);
-
-  const [noteItems] = useState(exdata);
+  const [noteItems,setNoteItems] = useState([]);
 
   function toggleList() {
     showNoteList ? setShowNoteList(false) : setShowNoteList(true);
+  }
+  function addNote() {
+    const currentDate = new Date();
+    setNoteItems([{
+      title: "Untitled",
+      content: "",
+      date: currentDate.toLocaleDateString('default',{month:"long", day:"numeric", year:"numeric" }) + " at " + currentDate.toLocaleTimeString('default', {timeStyle:"short"})
+    },...noteItems])
   }
 
   return (
@@ -23,7 +29,7 @@ const Homepage = ({ mainView }) => {
       <Header toggleList={toggleList} />
 
       <div className="main">
-        <NoteList showNoteList={showNoteList} noteItems={noteItems} />
+        <NoteList showNoteList={showNoteList} noteItems={noteItems} addNote = {addNote}/>
         {mainView === "empty" && <EmptyNote />}
         {mainView === "viewonly" && <NoteView noteItems={noteItems} />}
         {mainView === "edit" && <NoteEdit noteItems={noteItems} />}
