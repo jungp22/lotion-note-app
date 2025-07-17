@@ -15,7 +15,7 @@ const NoteItem = ({ item, index }) => {
     new Date(item.date).toLocaleTimeString("default", { timeStyle: "short" });
 
   return (
-    <button className="NoteItem" onClick={handleNoteClick}>
+    <button className="NoteItem" id={item.id} onClick={handleNoteClick}>
       <h2>{item.title}</h2>
       <p>{formattedDate}</p>
       <div className="content">
