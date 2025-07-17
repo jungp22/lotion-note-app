@@ -12,10 +12,16 @@ const NoteView = () => {
     window.location.replace("/notes/" + info.id + "/edit");
   }
 
+  
   function handleDelete() {
     const answer = window.confirm("Are you sure?");
     if (answer) {
-      window.confirm("Ok");
+      console.log(noteItems[info.id - 1].id)
+      console.log(noteItems)
+      const test = noteItems.filter(item => item.id !== noteItems[info.id - 1]).id
+      console.log(test)
+      localStorage.setItem("noteItems", JSON.stringify(noteItems.filter(item => item !== noteItems[info.id - 1])))
+      window.location.replace("/notes/");
     }
   }
   const item = noteItems[info.id - 1]
