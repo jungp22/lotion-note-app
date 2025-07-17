@@ -1,8 +1,7 @@
-
 .NoteList {
   display: flex;
   flex-direction: column;
-  flex:2;
+  flex: 2;
   height: 100%;
   align-items: flex-start;
   border: 2px solid #f6f6f6;
@@ -15,7 +14,7 @@
   align-items: center;
   border-bottom: 2px solid #f6f6f6;
 }
-.ListHeader h2{
+.ListHeader h2 {
   padding-left: 15px;
 }
 .ListHeader button {
@@ -23,7 +22,7 @@
   border: none;
   width: 64px;
   height: 50px;
-  font-weight:400;
+  font-weight: 400;
   font-size: 20px;
 }
 
@@ -31,6 +30,7 @@
   background-color: #4d455d;
   color: white;
 }
-.List{
-    width: 100%;
+.List {
+  width: 100%;
+  overflow: scroll;
 }
