@@ -23,6 +23,11 @@ const Homepage = ({ mainView }) => {
     setShowNoteList(savedNoteList ? savedNoteList : "true");
   }, []);
 
+  useEffect(() => {
+    const savedNoteItems = JSON.parse(localStorage.getItem("noteItems"));
+    setNoteItems(savedNoteItems ? savedNoteItems : []);
+  }, []);
+
   function addNote() {
     const currentDate = new Date();
     const newNoteItems = [
@@ -42,9 +47,7 @@ const Homepage = ({ mainView }) => {
       ...noteItems,
     ]
     setNoteItems(newNoteItems)
-    localStorage.setItem("noteItems", newNoteItems);
-    console.log(newNoteItems)
-
+    localStorage.setItem("noteItems", JSON.stringify(newNoteItems));
   }
 
   return (
@@ -58,8 +61,8 @@ const Homepage = ({ mainView }) => {
           addNote={addNote}
         />
         {mainView === "empty" && <EmptyNote />}
-        {mainView === "viewonly" && <NoteView noteItems={noteItems} />}
-        {mainView === "edit" && <NoteEdit noteItems={noteItems} />}
+        {mainView === "viewonly" && <NoteView/>}
+        {mainView === "edit" && <NoteEdit/>}
       </div>
     </div>
   );
