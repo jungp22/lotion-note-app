@@ -18,12 +18,23 @@ const NoteView = () => {
       window.confirm("Ok");
     }
   }
+  const item = noteItems[info.id - 1]
+
+  const formattedDate =
+    new Date(item.date).toLocaleDateString("default", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }) +
+    " at " +
+    new Date(item.date).toLocaleTimeString("default", { timeStyle: "short" });
+
   return (
     <div className="Note">
       <div className="NoteHeader">
         <div className="NoteTitle">
           <h2>{noteItems[info.id - 1].title}</h2>
-          <p>{noteItems[info.id - 1].date}</p>
+          <p>{formattedDate}</p>
         </div>
         <div className="NoteTitleButtons">
           <button onClick={handleNoteEdit}>Edit</button>

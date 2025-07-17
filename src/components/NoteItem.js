@@ -5,13 +5,21 @@ const NoteItem = ({ item, index }) => {
   function handleNoteClick() {
     window.location.replace("/notes/" + (index + 1));
   }
+  const formattedDate =
+    new Date(item.date).toLocaleDateString("default", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }) +
+    " at " +
+    new Date(item.date).toLocaleTimeString("default", { timeStyle: "short" });
+
   return (
     <button className="NoteItem" onClick={handleNoteClick}>
       <h2>{item.title}</h2>
-      <p>{item.date}</p>
+      <p>{formattedDate}</p>
       <div className="content">
         <p>{item.content}</p>
-        <p>{index}</p>
       </div>
     </button>
   );

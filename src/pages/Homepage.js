@@ -34,17 +34,10 @@ const Homepage = ({ mainView }) => {
       {
         title: "Untitled",
         content: "",
-        date:
-          currentDate.toLocaleDateString("default", {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          }) +
-          " at " +
-          currentDate.toLocaleTimeString("default", { timeStyle: "short" }),
+        date: currentDate.toISOString(),
         id: uuidv1()
       },
-      ...noteItems,
+      ...noteItems
     ]
     setNoteItems(newNoteItems)
     localStorage.setItem("noteItems", JSON.stringify(newNoteItems));

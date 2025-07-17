@@ -8,13 +8,17 @@ const NoteEdit = () => {
   const info = useParams();
   console.log(info.id);
   const noteItems =  JSON.parse(localStorage.getItem("noteItems"))
+  let date = (noteItems[info.id - 1].date).substring(0,16)
 
+  console.log((noteItems[info.id - 1].date).substring(0,16))
   function handleDelete() {
     const answer = window.confirm("Are you sure?");
     if (answer) {
       window.confirm("Ok");
     }
   }
+
+  
   function handleSave() {
     window.location.replace("/notes/" + info.id);
   }
@@ -23,7 +27,7 @@ const NoteEdit = () => {
       <div className="NoteHeader">
         <div className="NoteTitle">
           <input id="EditTitle" type="text" value={noteItems[info.id - 1].title}></input>
-          <input type="datetime-local" />
+          <input type="datetime-local" value={date}/>
         </div>
         <div className="NoteTitleButtons">
           <button onClick={handleSave}>Save</button>
