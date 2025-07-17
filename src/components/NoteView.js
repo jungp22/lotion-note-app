@@ -2,10 +2,12 @@ import React from "react";
 import "../style/Note.css";
 import { useParams } from "react-router-dom";
 
-const NoteView = ({ noteItems }) => {
+const NoteView = () => {
   const info = useParams();
   console.log(info.id);
-
+  const noteItems =  JSON.parse(localStorage.getItem("noteItems"))
+  console.log(noteItems);
+  
   function handleNoteEdit() {
     window.location.replace("/notes/" + info.id + "/edit");
   }
@@ -21,7 +23,7 @@ const NoteView = ({ noteItems }) => {
       <div className="NoteHeader">
         <div className="NoteTitle">
           <h2>{noteItems[info.id - 1].title}</h2>
-          <p>date</p>
+          <p>{noteItems[info.id - 1].date}</p>
         </div>
         <div className="NoteTitleButtons">
           <button onClick={handleNoteEdit}>Edit</button>

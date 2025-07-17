@@ -11,6 +11,7 @@ const NoteItem = ({ item, index }) => {
       <p>{item.date}</p>
       <div className="content">
         <p>{item.content}</p>
+        <p>{index}</p>
       </div>
     </button>
   );

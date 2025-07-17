@@ -4,9 +4,10 @@ import "react-quill/dist/quill.snow.css";
 import "../style/Note.css";
 import { useParams } from "react-router-dom";
 
-const NoteEdit = ({ noteItems }) => {
+const NoteEdit = () => {
   const info = useParams();
   console.log(info.id);
+  const noteItems =  JSON.parse(localStorage.getItem("noteItems"))
 
   function handleDelete() {
     const answer = window.confirm("Are you sure?");
