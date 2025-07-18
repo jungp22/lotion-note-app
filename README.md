@@ -12,7 +12,5 @@ Note App using the React framework.
     - useEffect
 
 ## Future Steps
-- Explore more with React hooks
-- Layout route would make it reload less
 - Searchable Tags
 - Searching and sorting option
