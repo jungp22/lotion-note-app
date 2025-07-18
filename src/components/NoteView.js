@@ -5,9 +5,7 @@ const NoteView = () => {
   let navigate = useNavigate();
 
   const info = useParams();
-  console.log(info.id);
   const noteItems =  JSON.parse(localStorage.getItem("noteItems"))
-  console.log(noteItems);
   
   function handleNoteEdit() {
     navigate("/notes/" + info.id + "/edit")
@@ -17,10 +15,6 @@ const NoteView = () => {
   function handleDelete() {
     const answer = window.confirm("Are you sure?");
     if (answer) {
-      console.log(noteItems[info.id - 1].id)
-      console.log(noteItems)
-      const test = noteItems.filter(item => item.id !== noteItems[info.id - 1]).id
-      console.log(test)
       localStorage.setItem("noteItems", JSON.stringify(noteItems.filter(item => item !== noteItems[info.id - 1])))
       navigate("/notes/")
     }
