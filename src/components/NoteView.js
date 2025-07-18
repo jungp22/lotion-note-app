@@ -17,6 +17,8 @@ const NoteView = () => {
     if (answer) {
       localStorage.setItem("noteItems", JSON.stringify(noteItems.filter(item => item !== noteItems[info.id - 1])))
       navigate("/notes/")
+
+    window.location.reload();
     }
   }
   const item = noteItems[info.id - 1]
@@ -42,8 +44,7 @@ const NoteView = () => {
           <button onClick={handleDelete}>Delete</button>
         </div>
       </div>
-      <div className="NoteContent">
-        <p>{noteItems[info.id - 1].content}</p>
+      <div className="NoteContent" dangerouslySetInnerHTML={{ __html: noteItems[info.id - 1].content }}>
       </div>
     </div>
   );

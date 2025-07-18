@@ -22,7 +22,9 @@ const NoteEdit = () => {
           noteItems.filter((item) => item !== noteItems[info.id - 1])
         )
       );
+      window.location.reload();
     }
+
   }
 
   function handleSave() {
@@ -32,6 +34,7 @@ const NoteEdit = () => {
     newList[info.id - 1].content = content;
     localStorage.setItem("noteItems", JSON.stringify(newList));
     navigate("/notes/" + info.id);
+    window.location.reload();
   }
   return (
     <div className="Note">

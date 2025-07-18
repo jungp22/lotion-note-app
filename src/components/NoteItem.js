@@ -20,8 +20,7 @@ const NoteItem = ({ item, index }) => {
     <button className="NoteItem" id={item.id} onClick={HandleNoteClick}>
       <h2>{item.title}</h2>
       <p>{formattedDate}</p>
-      <div className="content">
-        <p>{item.content}</p>
+      <div className="content" dangerouslySetInnerHTML={{ __html: item.content }}>
       </div>
     </button>
   );
