@@ -2,47 +2,36 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../style/Note.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 
 const NoteEdit = () => {
   let navigate = useNavigate();
   const info = useParams();
-  console.log(info.id);
   const noteItems = JSON.parse(localStorage.getItem("noteItems"));
-  let noteDate = noteItems[info.id - 1].date;
-  console.log(noteDate.substring(0, 16));
+
+  const [title, setTitle] = useState(noteItems[info.id - 1].title);
+  const [date, setDate] = useState(noteItems[info.id - 1].date);
+  const [content, setContent] = useState(noteItems[info.id - 1].content);
 
   function handleDelete() {
     const answer = window.confirm("Are you sure?");
     if (answer) {
-      console.log(noteItems[info.id - 1].id)
-      console.log(noteItems)
-      const test = noteItems.filter(item => item.id !== noteItems[info.id - 1]).id
-      console.log(test)
-      localStorage.setItem("noteItems", JSON.stringify(noteItems.filter(item => item !== noteItems[info.id - 1])))
-      
-      navigate("/notes/")
+      localStorage.setItem(
+        "noteItems",
+        JSON.stringify(
+          noteItems.filter((item) => item !== noteItems[info.id - 1])
+        )
+      );
     }
-  }
-  function changeDate(event) {
-    const newDate = event.target.value;
-    const newList = noteItems;
-    newList[info.id - 1].date = (new Date(newDate+ ":00.000Z")).toISOString();
-    localStorage.setItem("noteItems", JSON.stringify(newList));
-    console.log(document.querySelector('input[type="datetime-local"]').value+ ' ' + newDate)
-    document.querySelector('input[type="datetime-local"]').value = newDate;
-    window.location.reload();
-  }
-  function changeTitle(event) {
-    const newTitle = event.target.value;
-    const newList = noteItems;
-    newList[info.id - 1].title = newTitle;
-    localStorage.setItem("noteItems", JSON.stringify(newList));
-    console.log(document.querySelector('input[id="EditTitle"]').value+ ' ' + newTitle)
-    document.querySelector('input[id="EditTitle"]').value = newTitle;
   }
 
   function handleSave() {
-    navigate("/notes/" + info.id)
+    const newList = noteItems;
+    newList[info.id - 1].date = new Date(date).toISOString();
+    newList[info.id - 1].title = title;
+    newList[info.id - 1].content = content;
+    localStorage.setItem("noteItems", JSON.stringify(newList));
+    navigate("/notes/" + info.id);
   }
   return (
     <div className="Note">
@@ -51,10 +40,14 @@ const NoteEdit = () => {
           <input
             id="EditTitle"
             type="text"
-            value={noteItems[info.id - 1].title}
-            onChange={changeTitle}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           ></input>
-          <input type="datetime-local" value={noteDate.substring(0, 16)} onChange={changeDate} />
+          <input
+            type="datetime-local"
+            value={date.substring(0, 16)}
+            onChange={(e) => setDate(e.target.value)}
+          />
         </div>
         <div className="NoteTitleButtons">
           <button onClick={handleSave}>Save</button>
@@ -63,7 +56,8 @@ const NoteEdit = () => {
       </div>
       <ReactQuill
         theme="snow"
-        value={noteItems[info.id - 1].content}
+        value={content}
+        onChange={(value) => setContent(value)}
         placeholder="Your Note Here"
       />
     </div>
