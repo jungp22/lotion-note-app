@@ -1,4 +1,3 @@
-import React from "react";
 import "../style/NoteItem.css";
 
 const NoteItem = ({ item, index }) => {

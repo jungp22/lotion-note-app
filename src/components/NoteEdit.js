@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../style/Note.css";
@@ -38,7 +37,6 @@ const NoteEdit = () => {
     localStorage.setItem("noteItems", JSON.stringify(newList));
     console.log(document.querySelector('input[id="EditTitle"]').value+ ' ' + newTitle)
     document.querySelector('input[id="EditTitle"]').value = newTitle;
-    window.location.reload();
   }
 
   function handleSave() {

@@ -1,4 +1,3 @@
-import React from "react";
 import "../style/NoteList.css";
 import NoteItem from "./NoteItem";
 const NoteList = ({ showNoteList, noteItems, addNote }) => {
