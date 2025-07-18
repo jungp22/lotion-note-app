@@ -5,7 +5,7 @@ import NoteList from "../components/NoteList";
 import { v1 as uuidv1 } from 'uuid';
 import { Outlet } from "react-router-dom";
 
-const Homepage = ({ mainView }) => {
+const Homepage = () => {
   const [showNoteList, setShowNoteList] = useState("true");
   const [noteItems, setNoteItems] = useState([]);
 
@@ -17,11 +17,8 @@ const Homepage = ({ mainView }) => {
 
   useEffect(() => {
     const savedNoteList = localStorage.getItem("showNoteList");
-    setShowNoteList(savedNoteList ? savedNoteList : "true");
-  }, []);
-
-  useEffect(() => {
     const savedNoteItems = JSON.parse(localStorage.getItem("noteItems"));
+    setShowNoteList(savedNoteList ? savedNoteList : "true");
     setNoteItems(savedNoteItems ? savedNoteItems : []);
   }, []);
 
