@@ -29,6 +29,8 @@
 .ListHeader button:hover {
   background-color: #4d455d;
   color: white;
+    cursor: pointer;
+
 }
 .List {
   width: 100%;

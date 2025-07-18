@@ -30,6 +30,13 @@
 .Header button:hover {
   background-color: #4d455d;
   color: white;
+  cursor: pointer;
+}
+
+.Header button#Title {
+  width:100%;
+  color:black;
+  background-color: white;
 }
 
 .Header .cooldiv {
