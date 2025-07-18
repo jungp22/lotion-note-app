@@ -1,14 +1,16 @@
 import "../style/Note.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NoteView = () => {
+  let navigate = useNavigate();
+
   const info = useParams();
   console.log(info.id);
   const noteItems =  JSON.parse(localStorage.getItem("noteItems"))
   console.log(noteItems);
   
   function handleNoteEdit() {
-    window.location.replace("/notes/" + info.id + "/edit");
+    navigate("/notes/" + info.id + "/edit")
   }
 
   
@@ -20,7 +22,7 @@ const NoteView = () => {
       const test = noteItems.filter(item => item.id !== noteItems[info.id - 1]).id
       console.log(test)
       localStorage.setItem("noteItems", JSON.stringify(noteItems.filter(item => item !== noteItems[info.id - 1])))
-      window.location.replace("/notes/");
+      navigate("/notes/")
     }
   }
   const item = noteItems[info.id - 1]

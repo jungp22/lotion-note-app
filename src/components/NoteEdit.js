@@ -1,9 +1,10 @@
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../style/Note.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NoteEdit = () => {
+  let navigate = useNavigate();
   const info = useParams();
   console.log(info.id);
   const noteItems = JSON.parse(localStorage.getItem("noteItems"));
@@ -18,7 +19,8 @@ const NoteEdit = () => {
       const test = noteItems.filter(item => item.id !== noteItems[info.id - 1]).id
       console.log(test)
       localStorage.setItem("noteItems", JSON.stringify(noteItems.filter(item => item !== noteItems[info.id - 1])))
-      window.location.replace("/notes/");
+      
+      navigate("/notes/")
     }
   }
   function changeDate(event) {
@@ -40,7 +42,7 @@ const NoteEdit = () => {
   }
 
   function handleSave() {
-    window.location.replace("/notes/" + info.id);
+    navigate("/notes/" + info.id)
   }
   return (
     <div className="Note">

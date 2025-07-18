@@ -3,9 +3,11 @@ import Header from "../components/Header";
 import "../style/styles.css";
 import NoteList from "../components/NoteList";
 import { v1 as uuidv1 } from 'uuid';
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Homepage = () => {
+  let navigate = useNavigate();
+
   const [showNoteList, setShowNoteList] = useState("true");
   const [noteItems, setNoteItems] = useState([]);
 
@@ -35,6 +37,8 @@ const Homepage = () => {
     ]
     setNoteItems(newNoteItems)
     localStorage.setItem("noteItems", JSON.stringify(newNoteItems));
+    navigate("/notes/1/edit")
+
   }
 
   return (

@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import "../style/NoteItem.css";
 
 const NoteItem = ({ item, index }) => {
-  function handleNoteClick() {
-    window.location.replace("/notes/" + (index + 1));
+  let navigate = useNavigate();
+
+  function HandleNoteClick() {
+    navigate("/notes/" + (index + 1))
   }
   const formattedDate =
     new Date(item.date).toLocaleDateString("default", {
@@ -14,7 +17,7 @@ const NoteItem = ({ item, index }) => {
     new Date(item.date).toLocaleTimeString("default", { timeStyle: "short" });
 
   return (
-    <button className="NoteItem" id={item.id} onClick={handleNoteClick}>
+    <button className="NoteItem" id={item.id} onClick={HandleNoteClick}>
       <h2>{item.title}</h2>
       <p>{formattedDate}</p>
       <div className="content">
