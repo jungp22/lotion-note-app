@@ -1,6 +1,8 @@
 # Lotion
 Note App using the React framework.
 
+https://jungp22-notion.netlify.app/
+
 ## Stuff I practiced
 - Used 3 external libraries:
     - `react-router-dom` for front-end routing
