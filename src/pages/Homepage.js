@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
-import EmptyNote from "../components/EmptyNote";
-
 import "../style/styles.css";
 import NoteList from "../components/NoteList";
-import NoteEdit from "../components/NoteEdit";
-import NoteView from "../components/NoteView";
 import { v1 as uuidv1 } from 'uuid';
+import { Outlet } from "react-router-dom";
 
 const Homepage = ({ mainView }) => {
   const [showNoteList, setShowNoteList] = useState("true");
@@ -53,9 +50,7 @@ const Homepage = ({ mainView }) => {
           noteItems={noteItems}
           addNote={addNote}
         />
-        {mainView === "empty" && <EmptyNote />}
-        {mainView === "viewonly" && <NoteView/>}
-        {mainView === "edit" && <NoteEdit/>}
+        <Outlet/>
       </div>
     </div>
   );
